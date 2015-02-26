@@ -1,0 +1,250 @@
+
+>npm install -g git-it
+
+Git-it Challenges
+
+    Get Git Install and configure Git
+    Repository Create a local repository
+    Commit to it Check status, add and commit changes
+    GitHubbin Get a GitHub account
+    Remote Control Connect local repositories to remote ones on GitHub.com
+    Forks and Clones Fork and clone an open source repository
+    Branches aren't just for Birds Create a branch for features/changes
+    It's a Small World Add and sync with a collaborator (Hi, @reporobot!)
+    Pull, Never Out of Date Push and pull to sync changes to GitHub.com
+    Requesting You Pull Please Create a pull request
+    Merge Tada Merge and delete branches
+
+Install Git SCM Tool
+====================
+Verify what version installed
+$ git --version
+git version 1.9.1
+
+Set your name:
+$ git config --global user.name "<Your Name>"
+
+Now set your email:
+$ git config --global user.email <youremail@example.com>
+
+
+Create Git Repo
+===============
+Make a new folder (aka directory)
+$ mkdir <FOLDERNAME>
+
+Navigate into an existing folder (aka change directory)
+$ cd <FOLDERNAME>
+
+Show Directory List of the items in a folder
+$ ls or >dir
+
+Turn Git on for a folder
+$ git init 
+
+Check repo status of the file changes
+$ git status
+
+View changes to files in repo
+$ git diff
+
+Add a files changes to be committed
+$ git add <FILENAME>
+
+Shortcut: Add all files changes with one command
+$ git add .
+
+Combo function command that can 
+Stage and then Commit "all" (-A) changes
+$ git add -A
+
+To commit (aka save) the changes 
+you have added with a short commit message (-m) describing the changes
+$ git commit -m "<your commit message>"
+
+Initialize a username for GitHub
+$ git config --global user.username <USerNamE>
+
+
+Git Remote Control
+==================
+
+Add remote connections
+$ git remote add <REMOTENAME> <URL>
+
+Set a URL to a remote
+$ git remote set-url <REMOTENAME> <URL>
+
+Pull in changes
+$ git pull <REMOTENAME> <BRANCHNAME>
+Note: Pull Requests provide a way to notify project maintainers about the changes you would like them to consider.
+Also, Pull Requests help start code review and conversation about proposed changes before they are merged into the master branch.
+
+View remote connections
+$ git remote -v
+
+Push changes
+$ git push <REMOTENAME> <BRANCH> 
+
+Git Forks and Clones
+====================
+
+Fork a repo will create a copy into remote repo under your control, like GitHub account.
+Now, clone can be made to local computer from GitHub account.
+
+Your local repo can make Git Push and Git Pull in your Git Fork referred as Origin (address alias).
+Also, your local can make Git Pull from Upstream (Initial) Repo changes to your original local repo.
+
+Change directory to root directory
+>cd ..
+
+Create a new repo and sub directory
+git clone https://github.com/billott/patchwork.git
+
+>cd patchwork
+
+Create another connection to Original repo your previously cloned locally and GitHub.
+$ git remote add upstream https://github.com/jlord/patchwork.git
+Note: "upstream" is alias to URL .git file use by Git command options.
+
+Show the defined connections to all the Git remote repos
+$ git remote -v
+
+Git Repo Branches
+=================
+
+Git Branches isolate your repo file work (make changes) by creating a copy from the Git Master branch.
+The Master Branch is the trunk/deployable code for production.
+When you finish working your current branch, then merge your Current branch back into your Master branch of default repo.
+
+GitHub Flow docs
+https://guides.github.com/introduction/flow/index.html
+
+GitHub Pages is static website hosting
+http://githubusername.github.io/repositoryname
+https://github.com/billott/hello-world
+http://billott.github.io/hello-world
+
+Determine what branch you are on/using?
+Any outstanding commits? Condition of working dir?
+$ git status -v
+
+Create a Git Branch
+$ git branch add-billott
+
+Change to specified branch
+$ git checkout add-billott
+
+Show branches with detail informaiton
+$ git branch -v
+
+Rename a branch you are currently on
+$ git branch -m <NEW-BRANCH-NAME>
+
+Verify what branch you are working in/on
+$ git status -v
+
+Social Coding
+=============
+
+Collaborators are other GitHub users who are given permission 
+to make edits to a repository owned by someone else.
+
+github.com/YOURUSERNAME/patchwork/settings/collaboration
+
+Here is what you get...
+---
+     _____                                                 /\  \
+    /::\  \       ___                                     /::\  \         ___           ___
+   /:/\:\  \     /\__\                                   /:/\:\  \       /\__\         /\__\
+  /:/ /::\__\   /:/__/      ___     ___   ___     ___   /:/  \:\  \     /:/  /        /:/  /
+ /:/_/:/\:|__| /::\  \     /\  \   /\__\ /\  \   /\__\ /:/__/ \:\__\   /:/__/        /:/__/
+ \:\/:/ /:/  / \/\:\  \__  \:\  \ /:/  / \:\  \ /:/  / \:\  \ /:/  /  /::\  \       /::\  \
+  \::/_/:/  /   ~~\:\/\__\  \:\  /:/  /   \:\  /:/  /   \:\  /:/  /  /:/\:\  \     /:/\:\  \
+   \:\/:/  /       \::/  /   \:\/:/  /     \:\/:/  /     \:\/:/  /   \/__\:\  \    \/__\:\  \
+    \::/  /        /:/  /     \::/  /       \::/  /       \::/  /         \:\__\        \:\__\
+     \/__/         \/__/       \/__/         \/__/         \/__/           \/__/         \/__/
+---
+
+
+Git Pulling From a Remote repository
+====================================
+
+Lookup the remote name and branch name
+$ git remote -v
+$ git branch -v
+
+Pull in changes from a remote branch
+$ git pull <REMOTE-NAME> <REMOTE-BRANCH>
+
+$ git pull origin add-billott
+
+See changes to the remote before you pull in
+$ git fetch --dry-run
+Note: Check changes to see if you want them in your current branch
+
+Requesting a Pull Requests
+==========================
+
+Create a pull request from the original repo so others can get your changes
+This updated the original repo with your changes.
+
+GitHub at top of page, see the latest commit for pull request.
+base fork: jlord/patchwork base branch: gh-pages from head fork: billott/patchwork compare branch add-billott
+
+Initiate a pull request on the original repo web page, see the right side for menu option.
+
+
+Final Merge Tada
+================
+
+You have add to the original repo from your forked repository.
+Now update (Merge) changes into the gh-pages branch from the changes from add-billott branch.
+
+Change to the specified target branch (gh-pages)
+$ git checkout gh-pages
+
+Merge in the changes from the add-billott branch, same as...
+Merge a branch into current branch
+$ git merge add-billott
+
+Tidy-up your LOCAL repo branch (add-billott) which means 
+to remove/delete old local branch (previous merged) to gh-pages branch
+$ git branch -d add-billott
+
+Show all remote connections
+$ git remote -v
+origin  https://github.com/billott/patchwork.git (fetch)
+origin  https://github.com/billott/patchwork.git (push)
+upstream        https://github.com/jlord/patchwork.git (fetch)
+upstream        https://github.com/jlord/patchwork.git (push)
+
+Tidy-up your REMOTE repo (origin) branches, which means
+to remove/delete the old remote branch (add-billott) that has already been merged
+to the master branch (gh-pages) on the remote repo (GitHub account).
+$ git push origin --delete add-billott
+
+Pull from Upstream/Pull from a remote branch
+which means to push your current branch (gh-pages)
+to the forked repo on remote server (GitHub account).
+$ git pull upstream gh-pages
+
+DONE.
+
+You have created local repositories, remote repositories, 
+worked with a collaborator, pushed, pulled 
+and joined the millions of others developing 
+and enriching open source software!
+
+http://jlord.us/patchwork/
+
+What next? Here are some ideas for what to work on next.
+Make a repository on GitHub named `ghusername.github.io` 
+and fill it with web site files 
+
+-- 
+
+GitHub will host for free at the same address: ghusername.github.io
+Open up an issue in one of your repositories and create a to-do list.
+Find interesting open source projects to work with in Explore.
+Checkout the GitHub Hello World Guide for more GitHub basics.
